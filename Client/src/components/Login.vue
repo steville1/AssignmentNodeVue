@@ -48,8 +48,9 @@
                 this.axios.post('signin', postData).then((response) => {
                     toastr.success("Login successful")
                     this.loading = false;
-                    localStorage.setItem("token", response.data);
-                    this.axios.defaults.headers['auth-token'] = response.data;
+                    localStorage.setItem("token", "bearer "+response.data.token);
+                    this.axios.defaults.headers['Authorization'] = "bearer "+response.data.token;
+                    console.log("bearer "+response.data.token);
                     this.$router.push('/')
                 }).catch(err => {
                     this.loading = false;

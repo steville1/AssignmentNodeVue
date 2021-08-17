@@ -14,7 +14,7 @@ const token = localStorage.getItem("token");
 //
 if (token) {
     config['headers'] = {
-        "auth-token": token,
+        "Authorization":token,
     }
 }
 
