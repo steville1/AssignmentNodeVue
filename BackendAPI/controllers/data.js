@@ -29,11 +29,11 @@ exports.GetByDateRange =  (req, res) => {
     //console.log(responseData);
 
     var result = responseData.alarms.filter(item => new Date(item.timestamp).getTime() > new Date(startDate).getTime() && new Date(item.timestamp) < new Date(endDate).getTime())
-    console.log(result);
+    //console.log(result);
     const response = result.slice(startIndex, endIndex);
     const { length } = JSON.stringify(response);
-    console.log("response"+ response);
-    console.log("Length"+ length);
+    //console.log("response"+ response);
+   // console.log("Length"+ length);
    
     const resultData = {
         total_page: length / limit,
@@ -42,7 +42,7 @@ exports.GetByDateRange =  (req, res) => {
         next_page: (endIndex <= length) ? nexturl : null,
         data: result,
     }
-    console.log("Responses"+ resultData);
+    //console.log("Responses"+ resultData);
     res.status(200).send(resultData);
 };
 
@@ -60,7 +60,7 @@ exports.GetLocationById =  (req, res) => {
     let response = JSON.parse(file);
     //console.log(data);
     //const file = '../data1627317806.json';
-    console.log(req);
+    //console.log(req);
     const locationId = req.query.id;
     //const JsonData = jsonfile.readFileSync(response);
     var result = response.locations.filter(item => item.id == locationId);

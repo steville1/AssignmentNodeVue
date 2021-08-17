@@ -1,6 +1,6 @@
 <template>
     <div class="inner-block-home">
-        <router-link to="#" class="mb-4">Logout</router-link>
+        <router-link to="/Logout" class="mb-4">Logout</router-link>
         <div class="home">
             <form class="form-inline" action="" @submit="searchByDate">
                 <div class="row">
